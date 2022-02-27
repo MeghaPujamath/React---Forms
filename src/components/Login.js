@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
-import axios from 'axios';
+
+import cors from 'cors';
+import fetch from 'node-fetch';
+import axios from '../api/axios';
 
 class Login extends Component {
     
@@ -37,17 +40,16 @@ class Login extends Component {
             password: this.password,
         };
 
-        axios.post('login', data).then
+        axios.post('/login',data).then
             (res => {
-                // res.headers("Access-Control-Allow-Origin", "*");
                 localStorage.setItem('token', res.data.token);
             }).catch(
             err => {
-                //console.log(err);
+                console.log(err);
             }
         )
     };
 }
 
- 
+ //eve.holt@reqres.in   'https://reqres.in/api/login'
 export default Login;

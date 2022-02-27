@@ -58,7 +58,7 @@ class Signup extends Component {
             password_confirm: this.confirmPassword
         };
 
-        axios.post('register', data,
+        axios.post('http://localhost:8080/register', data,
             {headers: {'Content-Type': 'application/json'}}).then(
             res => {
                 console.log(res);

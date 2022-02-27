@@ -12,7 +12,7 @@ class App extends Component {
     state = {};
     componentDidMount = () =>{
 
-        axios.get('http://localhost:8000').then(
+        axios.get('http://localhost:8080/').then(
             res=> {
                 this.setState({
                     user: res.data
@@ -22,11 +22,13 @@ class App extends Component {
                 console.log(err);
             }
         )
+
+        const PORT = process.env.PORT || 8080;
+       
     };
 
     render() {
         return (
-        <BrowserRouter>
             <div className="App">
                 <Nav />
                 <Routes>
@@ -35,7 +37,6 @@ class App extends Component {
                     <Route exact path='/register' element={<Signup/>} />
                 </Routes>
             </div>
-        </BrowserRouter>
         );
     }
 }
