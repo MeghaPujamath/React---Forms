@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import axios from 'axios';
+import axios from '../api/axios';
 
 class Signup extends Component {
     
@@ -58,7 +58,7 @@ class Signup extends Component {
             password_confirm: this.confirmPassword
         };
 
-        axios.post('http://localhost:8080/register', data,
+        axios.post('/register', data,
             {headers: {'Content-Type': 'application/json'}}).then(
             res => {
                 console.log(res);
